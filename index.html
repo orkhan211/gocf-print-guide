@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 GOCF 쿠폰지 제작 가이드</title>
+    <!-- 폰트 및 아이콘 설정 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['"Noto Sans KR"', 'sans-serif'], },
+                    colors: {
+                        brand: { 50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 900: '#14532d', },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f3f4f6; }
+        .perforation-line {
+            border-left: 2px dashed #9ca3af;
+            position: relative;
+        }
+        .perforation-line::before {
+            content: '✂️';
+            position: absolute;
+            left: -12px;
+            top: -15px;
+            font-size: 14px;
+        }
+        /* 2단 그리드용 십자 미싱선 스타일 */
+        .perf-bottom { border-bottom: 2px dashed #9ca3af; }
+        .perf-left { border-left: 2px dashed #9ca3af; }
+        
+        @media print {
+            body { background-color: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .no-print { display: none !important; }
+            .print-break-inside-avoid { break-inside: avoid; }
+            .shadow-md { box-shadow: none !important; border: 1px solid #e5e7eb; }
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased p-4 md:p-8">
+
+    <!-- 상단 컨트롤 (인쇄 버튼) -->
+    <div class="max-w-5xl mx-auto mb-6 flex justify-end no-print">
+        <button onclick="showPrintModal()" class="bg-gray-800 text-white px-5 py-2 rounded-lg shadow hover:bg-gray-700 transition flex items-center gap-2">
+            <i class="fa-solid fa-print"></i> 이 가이드 인쇄하기 (작업지시서용)
+        </button>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-xl overflow-hidden">
+        
+        <header class="bg-gray-900 text-white p-8 border-b-8 border-brand-500">
+            <div class="flex justify-between items-end">
+                <div>
+                    <span class="bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block">Production Guide</span>
+                    <h1 class="text-3xl md:text-4xl font-extrabold mt-2">2026 GOCF 일체형 쿠폰지 제작 가이드</h1>
+                    <p class="text-gray-400 mt-2 text-sm">인쇄소 및 디자인팀 작업 지시용 사양서</p>
+                </div>
+                <div class="text-right hidden md:block text-sm text-gray-400">
+                    <p>문서 버전: v1.1</p>
+                    <p>작성일: 2026-03</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="p-8 space-y-12">
+            
+            <!-- 1. 제작 개요 -->
+            <section class="print-break-inside-avoid">
+                <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-3 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-clipboard-list text-brand-600"></i> 1. 제작 개요
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 flex gap-4 items-start">
+                        <div class="bg-white p-3 rounded-full shadow-sm text-brand-600"><i class="fa-solid fa-ticket fa-lg"></i></div>
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-500 mb-1">품목 (Item)</h3>
+                            <p class="font-semibold">2026 GOCF 입장객 제공용 패키지 쿠폰</p>
+                            <p class="text-sm text-gray-600">(미싱선 포함 일체형)</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 flex gap-4 items-start">
+                        <div class="bg-white p-3 rounded-full shadow-sm text-brand-600"><i class="fa-solid fa-layer-group fa-lg"></i></div>
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-500 mb-1">재질 추천 (Material)</h3>
+                            <p class="font-semibold text-brand-600">스노우지 또는 랑데부 210g~250g</p>
+                            <p class="text-sm text-gray-600">야외 행사 특성상 찢어지거나 젖지 않도록 약간 두께감 있는 지류 요망</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 flex gap-4 items-start">
+                        <div class="bg-white p-3 rounded-full shadow-sm text-brand-600"><i class="fa-solid fa-scissors fa-lg"></i></div>
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-500 mb-1">후가공 (Finishing)</h3>
+                            <p class="font-semibold text-red-600">미싱선(절취선) 타발 필수</p>
+                            <p class="text-sm text-gray-600">고객이 손으로 쉽게 뜯어 쓸 수 있도록 점선 칼집 가공</p>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 flex gap-4 items-start">
+                        <div class="bg-white p-3 rounded-full shadow-sm text-brand-600"><i class="fa-solid fa-palette fa-lg"></i></div>
+                        <div>
+                            <h3 class="text-sm font-bold text-gray-500 mb-1">인쇄 도수 (Color)</h3>
+                            <p class="font-semibold">양면 8도 (칼라)</p>
+                            <p class="text-sm text-gray-600">앞/뒷면 모두 풀컬러 인쇄</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. 권종별 제작 수량 및 레이아웃 구성 -->
+            <section>
+                <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-3 mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-brand-600"></i> 2. 권종별 레이아웃 및 텍스트 구성
+                </h2>
+
+                <div class="space-y-8">
+                    
+                    <!-- TYPE A -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm print-break-inside-avoid">
+                        <div class="bg-gray-100 px-6 py-4 border-b border-gray-200 flex items-center gap-3">
+                            <span class="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">TYPE A</span>
+                            <h3 class="text-lg font-bold">커피 쿠폰 <span class="text-sm font-normal text-gray-500">(싱글팩 및 현장 구매자용)</span></h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-gray-500 block mb-2">▶ 구성 및 레이아웃 (단일 쿠폰, 미싱선 없음)</span>
+                                <div class="inline-block border-2 border-gray-300 rounded-lg p-4 bg-orange-50 text-center font-bold text-orange-800 w-40">
+                                    커피 1
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                                <span class="text-sm font-bold text-gray-500 block mb-2">▶ 쿠폰 삽입 문구 (앞/뒷면 적절히 배치)</span>
+                                <p class="text-sm"><span class="font-bold text-brand-600">[타이틀]</span> GOCF 아메리카노 1잔 교환권</p>
+                                <p class="text-sm mt-1"><span class="font-bold text-brand-600">[안내문구]</span> 본 권으로 행사장 내 지정된 카페 부스에서 아메리카노 1잔(Hot/Ice)으로 교환하실 수 있습니다. (타 음료 변경 불가 / 분실 시 재발급 불가)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TYPE B -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm print-break-inside-avoid">
+                        <div class="bg-gray-100 px-6 py-4 border-b border-gray-200 flex items-center gap-3">
+                            <span class="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">TYPE B</span>
+                            <h3 class="text-lg font-bold">커플팩 (Couple Pack)</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-5">
+                                <span class="text-sm font-bold text-gray-500 block mb-2">▶ 구성 및 레이아웃 (총 3칸 연결, 미싱선 2줄)</span>
+                                <div class="flex flex-wrap border-2 border-gray-300 rounded-lg overflow-hidden w-fit">
+                                    <div class="p-4 bg-orange-50 text-center font-bold text-orange-800 w-32">커피 1</div>
+                                    <div class="perforation-line p-4 bg-orange-50 text-center font-bold text-orange-800 w-32">커피 2</div>
+                                    <div class="perforation-line p-4 bg-red-50 text-center font-bold text-red-800 w-32">푸드트럭 1</div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                                    <span class="text-sm font-bold text-gray-500 block mb-2">① 커피 (2칸 동일)</span>
+                                    <p class="text-sm"><span class="font-bold text-brand-600">[타이틀]</span> GOCF 아메리카노 1잔 교환권</p>
+                                    <p class="text-sm mt-1"><span class="font-bold text-brand-600">[안내문구]</span> 지정 카페 부스에서 아메리카노(Hot/Ice)로 교환 가능</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100 relative">
+                                    <span class="text-sm font-bold text-gray-500 block mb-2">② 푸드트럭 (1칸)</span>
+                                    <p class="text-sm"><span class="font-bold text-brand-600">[타이틀]</span> F&B 푸드트럭 1만 원 할인권</p>
+                                    <p class="text-sm mt-1"><span class="font-bold text-brand-600">[안내문구]</span> 문자로 발송된 QR 코드 또는 쿠폰번호를 이용해 결제 시 1만 원 할인을 받을 수 있습니다. (분실 시 재발급 불가 / 잔액 환불 불가)</p>
+                                    <p class="text-xs text-red-500 mt-2 font-bold"><i class="fa-solid fa-circle-exclamation"></i> 디자인 시: 문자 QR 확인 안내 문구가 눈에 잘 띄게 배치 요망</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TYPE C (수정됨: 2단 그리드 배열) -->
+                    <div class="border border-gray-200 rounded-xl overflow-hidden shadow-sm print-break-inside-avoid">
+                        <div class="bg-gray-100 px-6 py-4 border-b border-gray-200 flex items-center gap-3">
+                            <span class="bg-gray-800 text-white text-xs font-bold px-2 py-1 rounded">TYPE C</span>
+                            <h3 class="text-lg font-bold">패밀리팩 (Family Pack)</h3>
+                            <span class="bg-red-100 text-red-700 text-xs px-2 py-1 rounded ml-auto font-bold"><i class="fa-solid fa-arrows-to-circle"></i> 2단 십자 배열형</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-5">
+                                <span class="text-sm font-bold text-gray-500 block mb-2">▶ 구성 및 레이아웃 (총 8칸 2단 배열, 십자 미싱선 타발)</span>
+                                
+                                <!-- 2단 2x4 그리드 레이아웃 시각화 -->
+                                <div class="grid grid-cols-4 w-fit border-2 border-gray-400 rounded-lg overflow-hidden mb-3 shadow-sm relative">
+                                    <!-- 가상의 십자 가위 아이콘 (가운데 포인트) -->
+                                    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-gray-500 z-10 opacity-50"><i class="fa-solid fa-scissors fa-lg"></i></div>
+                                    
+                                    <!-- 1단 (Row 1) -->
+                                    <div class="h-24 flex items-center justify-center bg-orange-50 font-bold text-orange-800 perf-bottom w-28">커피 1</div>
+                                    <div class="h-24 flex items-center justify-center bg-orange-50 font-bold text-orange-800 perf-bottom perf-left w-28">커피 2</div>
+                                    <div class="h-24 flex items-center justify-center bg-orange-50 font-bold text-orange-800 perf-bottom perf-left w-28">커피 3</div>
+                                    <div class="h-24 flex items-center justify-center bg-orange-50 font-bold text-orange-800 perf-bottom perf-left w-28">커피 4</div>
+                                    
+                                    <!-- 2단 (Row 2) -->
+                                    <div class="h-24 flex items-center justify-center bg-red-50 font-bold text-red-800 w-28">푸드 1</div>
+                                    <div class="h-24 flex items-center justify-center bg-blue-50 font-bold text-blue-800 perf-left w-28">어트랙션 1</div>
+                                    <div class="h-24 flex items-center justify-center bg-blue-50 font-bold text-blue-800 perf-left w-28">어트랙션 2</div>
+                                    <div class="h-24 flex flex-col items-center justify-center bg-gray-50 font-bold text-gray-400 perf-left w-28">
+                                        <i class="fa-solid fa-image text-gray-300 text-xl mb-1"></i>
+                                        <span class="text-xs">GOCF 로고</span>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600 bg-gray-100 inline-block px-3 py-1 rounded border border-gray-200">
+                                    <i class="fa-solid fa-check text-brand-500"></i> 휴대성을 위해 위아래 2단으로 배열. 중앙과 세로선에 모두 미싱선(점선 절취선) 처리. 우측 하단 1칸은 여백으로 로고 배치.
+                                </p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                                    <span class="text-sm font-bold text-gray-500 block mb-2">① 커피 (4칸 동일)</span>
+                                    <p class="text-xs text-gray-600">TYPE B 커피 쿠폰 내용과 동일</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                                    <span class="text-sm font-bold text-gray-500 block mb-2">② 푸드트럭 (1칸)</span>
+                                    <p class="text-xs text-gray-600">TYPE B 푸드트럭 쿠폰 내용과 동일</p>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                                    <span class="text-sm font-bold text-gray-500 block mb-2">③ 어트랙션 (2칸 동일)</span>
+                                    <p class="text-sm"><span class="font-bold text-brand-600">[타이틀]</span> GOCF 어트랙션 이용권</p>
+                                    <p class="text-sm mt-1 leading-tight"><span class="font-bold text-brand-600">[안내문구]</span> 본 권으로 행사장 내 '바이킹' 또는 '회전그네' 중 1기종을 이용하실 수 있습니다. (※ 번지점프 이용 불가 / 분실 시 재발급 불가)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 3. 인쇄소 특별 주의사항 -->
+            <section class="print-break-inside-avoid">
+                <h2 class="text-2xl font-bold border-b-2 border-gray-200 pb-3 mb-6 flex items-center gap-2 text-red-600">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 3. 🚨 인쇄소/디자이너 특별 주의사항 (체크 포인트)
+                </h2>
+                
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-5 rounded-r-lg">
+                        <h3 class="font-bold text-yellow-800 text-lg mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-scissors"></i> 미싱선(절취선) 강도 조절
+                        </h3>
+                        <p class="text-gray-700">절취선이 너무 약하면 고객에게 나눠줄 때 이미 뜯어져 버리고, 너무 강하면 고객이 뜯다가 쿠폰이 찢어집니다. <strong>'적당히 뜯기기 쉬운 간격'</strong>으로 후가공 타발 세팅을 엄격히 확인해 주시기 바랍니다.</p>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-lg">
+                        <h3 class="font-bold text-blue-800 text-lg mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-circle-info"></i> 뒷면 유의사항 공통 기재
+                        </h3>
+                        <p class="text-gray-700 mb-2">모든 쿠폰의 뒷면에는 아래 문구를 공통으로 반드시 넣어주세요.</p>
+                        <blockquote class="bg-white p-3 border border-blue-200 rounded text-gray-800 font-bold text-sm shadow-sm">
+                            "본 쿠폰은 현금으로 교환되지 않으며, 행사 기간(4.17~19) 내에만 사용 가능합니다. 분실 및 훼손 시 재발급이 절대 불가합니다."
+                        </blockquote>
+                    </div>
+
+                    <div class="bg-purple-50 border-l-4 border-purple-500 p-5 rounded-r-lg">
+                        <h3 class="font-bold text-purple-800 text-lg mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-hashtag"></i> 위조 방지 넘버링 (옵션 선택)
+                        </h3>
+                        <p class="text-gray-700">필요 시, 각 쿠폰 구석에 난수 번호(No. 0001~)를 작게 타각해주시면 현장 정산 및 위조 방지에 큰 도움이 됩니다. (인쇄소와 진행 여부 최종 협의 요망)</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        
+        <footer class="bg-gray-100 text-center p-6 text-sm text-gray-500 border-t border-gray-200 print-break-inside-avoid">
+            <p>본 문서는 GOCF 운영사무국에서 발행한 쿠폰 제작 기준안입니다. 문의사항은 담당자에게 연락 바랍니다.</p>
+        </footer>
+    </div>
+
+    <!-- 인쇄 안내 모달 (커스텀 팝업) -->
+    <div id="printModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center no-print backdrop-blur-sm">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-md w-full mx-4 border border-gray-100">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-print text-brand-600"></i> 인쇄 안내
+            </h3>
+            <p class="text-gray-700 mb-5 leading-relaxed text-sm">
+                현재 미리보기 환경에서는 보안상 인쇄 팝업이 직접 실행되지 않습니다. 인쇄를 위해 아래 방법을 이용해 주세요.<br><br>
+                <strong class="text-brand-600">방법 1.</strong> 키보드 단축키 <kbd class="bg-gray-100 px-2 py-1 rounded border font-mono font-bold">Ctrl + P</kbd> (Mac은 <kbd class="bg-gray-100 px-2 py-1 rounded border font-mono font-bold">Cmd + P</kbd>) 누르기<br><br>
+                <strong class="text-brand-600">방법 2.</strong> 화면 우측 상단의 <strong>[다운로드 ↓]</strong> 아이콘을 눌러 파일을 저장한 후 일반 브라우저에서 열기
+            </p>
+            <div class="flex justify-end">
+                <button onclick="closePrintModal()" class="bg-gray-800 text-white px-5 py-2 rounded-lg hover:bg-gray-700 transition font-bold">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPrintModal() {
+            // 브라우저 환경에 따라 인쇄가 작동할 수도 있으므로 시도
+            try { window.print(); } catch(e) {}
+            // 작동하지 않는 환경을 위해 모달 띄우기
+            document.getElementById('printModal').classList.remove('hidden');
+        }
+        function closePrintModal() {
+            document.getElementById('printModal').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
